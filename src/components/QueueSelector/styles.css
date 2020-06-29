@@ -1,0 +1,17 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tray {
+    width: auto;
+    padding: 3px;
+}
+
+.tray:hover {
+    background: rgba(207, 207, 207, 0.2);
+    border-radius: 15px;
+    cursor: pointer;
+}

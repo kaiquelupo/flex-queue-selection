@@ -1,0 +1,13 @@
+[
+  {
+    "name": "plugin-queue-selector",
+    "version": "0.0.0",
+    "class": "QueueSelectorPlugin",
+    "requires": [
+      {
+        "@twilio/flex-ui": "^1"
+      }
+    ],
+    "src": "http://localhost:3001/plugin-queue-selector.js"
+  }
+]
