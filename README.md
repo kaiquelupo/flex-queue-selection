@@ -2,7 +2,9 @@
 
 This Flex plugin adds a queue selection option to agents directly, without the need of supervisor action.
 
-![Screenshot](screenshots/example.png?raw=true)
+<p align="center">
+    <img src="screenshots/example.png?raw=true" width="400" >
+</p>
 
 ## How to use
 
