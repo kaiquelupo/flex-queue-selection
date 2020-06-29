@@ -172,7 +172,7 @@ class QueueSelectorPanel extends React.Component {
                                 contained: classes.contained
                             }}
                             onClick={this.updateWorkerAttributes}
-                            disabled={this.state.showMessage !== "Failed" && this.state.showMessage}
+                            disabled={(this.state.showMessage !== "Failed" && this.state.showMessage) ? true : false}
                         >
                             Apply
                         </Button>
