@@ -22,7 +22,7 @@
     "craco-config-flex-plugin": "^3.13.5",
     "flex-plugin": "^3.13.2",
     "flex-plugin-scripts": "^3.13.5",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "react": "16.5.2",
     "react-dom": "16.5.2",
     "react-emotion": "9.2.6",
