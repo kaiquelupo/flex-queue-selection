@@ -39,6 +39,9 @@ class QueueSelectorPanel extends React.Component {
     getQueues = () => {
         Flex.Manager.getInstance().insightsClient.instantQuery('tr-queue').then((q) => {
             
+
+            const routing = this.props.workerAttributes.routing || { skills : [] };
+
             q.on('searchResult', (queues) => {
 
                 this.setState({ 
@@ -49,7 +52,7 @@ class QueueSelectorPanel extends React.Component {
                     this.setState({ 
                         selectedQueues: Object.keys(queues).reduce((pr, cur) => {
                   
-                            if(this.props.workerAttributes.routing.skills.includes(queues[cur].queue_name)){
+                            if(routing.skills.includes(queues[cur].queue_name)){
                                 return [...pr, queues[cur].queue_name]
                             }
     
@@ -88,19 +91,22 @@ class QueueSelectorPanel extends React.Component {
 
         this.setState({ showMessage: "Loading" });
 
+        const disabled_skills = this.props.workerAttributes.disabled_skills || { skills : [] };
+        const routing = this.props.workerAttributes.routing || { skills : [] };
+
         Flex.Manager.getInstance().workerClient.setAttributes({
             ...this.props.workerAttributes,
             routing: {
-                ...this.props.workerAttributes.routing,
+                ...routing,
                 skills: [
                     ...selectedQueues
                 ]
             },
             disabled_skills: {
-                ...this.props.workerAttributes.disabled_skills,
+                ...disabled_skills,
                 skills: [
-                    ...(this.props.workerAttributes.disabled_skills.skills).filter(elem => !selectedQueues.includes(elem)),
-                    ...(this.props.workerAttributes.routing.skills).filter(elem => !selectedQueues.includes(elem))
+                    ...disabled_skills.skills.filter(elem => !selectedQueues.includes(elem)),
+                    ...routing.skills.filter(elem => !selectedQueues.includes(elem))
                 ]
             }
         }).then(() => {
