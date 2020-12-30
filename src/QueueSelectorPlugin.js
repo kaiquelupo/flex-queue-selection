@@ -23,7 +23,8 @@ export default class QueueSelectorPlugin extends FlexPlugin {
     manager.strings.QueueSelectorPanelTitle = "QUEUES";
 
     flex.MainHeader.Content.add(<QueueSelector key="queue-selector"/>, {
-      align: "start"
+      sortOrder: 0,
+      align: "end"
     });
 
     flex.MainContainer.Content.add(<QueueSelectorPanel key="queue-selector-panel" />);
